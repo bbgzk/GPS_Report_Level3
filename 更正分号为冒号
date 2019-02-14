@@ -91,47 +91,76 @@ Sub 更正分号为冒号()
 '    End
 '----------------------------------------
 
-'从三级GPS龙洲湾报表复制预警信息
-    Windows("二级GPS界石.xlsx").Activate
-    Range("A2:W2").Select
-    ActiveCell.FormulaR1C1 = _
-        "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+'从三级GPS龙洲湾报表复制预警信息（方法1）
+'    Windows("二级GPS界石.xlsx").Activate
+'    Range("A2:W2").Select
+'    ActiveCell.FormulaR1C1 = _
+'        "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
 '    Range("J6:W6").Select
 
-    Range("I4").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R5C19"
-    Range("J4:W4").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R5C20"
-    Range("I5").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R9C19"
-    Range("J5:W5").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R9C20"
-    Range("I6").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R12C19"
-    Range("J6:W6").Select
-    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R12C20"
+'    Range("I4").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R5C19"
+'    Range("J4:W4").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R5C20"
+'    Range("I5").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R9C19"
+'    Range("J5:W5").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R9C20"
+'    Range("I6").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R12C19"
+'    Range("J6:W6").Select
+'    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R12C20"
 
-'复制I4:W6的值并粘贴到I4:W6
-    Range("I4:W6").Select
-    Selection.Copy
-    Range("I4").Select
-    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
-        :=False, Transpose:=False
-    Range("I20").Select
+''复制I4:W6的值并粘贴到I4:W6
+'    Range("I4:W6").Select
+'    Selection.Copy
+'    Range("I4").Select
+'    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'        :=False, Transpose:=False
+'    Range("I20").Select
 
-'保存
-    ActiveWorkbook.Save
-'    ActiveWindow.Close
+'
+''保存
+'    ActiveWorkbook.Save
+''    ActiveWindow.Close
+'
+'
+''删除三级GPS龙洲湾报表中393的多余预警信息
+'    Windows(file_lzw).Activate
+'    Sheets("393").Select
+'    Range("S5:T12").Select
+'    Selection.Delete Shift:=xlToLeft
+'    Range("I10:N12").Select
+'    ActiveWorkbook.Save
+''    ActiveWindow.Close
 
-
-'删除三级GPS龙洲湾报表中393的多余预警信息
+'从三级GPS龙洲湾报表复制预警信息(方法2)
     Windows(file_lzw).Activate
     Sheets("393").Select
-    Range("S5:T12").Select
-    Selection.Delete Shift:=xlToLeft
-    Range("I10:N12").Select
+    Dim time1, time2, time3
+    Dim msg1, msg2, msg3
+    time1 = Range("s5").Value
+    time2 = Range("s8").Value
+    time3 = Range("s12").Value
+    msg1 = Range("t5").Value
+    msg2 = Range("t8").Value
+    msg3 = Range("t12").Value
+
+'删除三级GPS龙洲湾报表中393的多余预警信息
+    Range("S5:T12") = ""
+    ActiveWorkbook.Save
+
+    Windows("二级GPS界石.xlsx").Activate
+    Range("i4") = time1
+    Range("j4") = msg1
+    Range("i5") = time2
+    Range("j5") = msg2
+    Range("i6") = time3
+    Range("j6") = msg3
+    Range("a2") = "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
     ActiveWorkbook.Save
 '    ActiveWindow.Close
+
 End Sub
 
 'Sub open_all_files(参数)
