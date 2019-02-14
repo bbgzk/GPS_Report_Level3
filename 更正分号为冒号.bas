@@ -1,28 +1,28 @@
-Attribute VB_Name = "Ä£¿é3"
-Sub ¸üÕı·ÖºÅÎªÃ°ºÅ()
-Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_Description = "¸üÕı·ÖºÅÎªÃ°ºÅ£¬¼ôÇĞÁúÖŞÍå±¨±íÖĞ¶àÓàÔ¤¾¯ĞÅÏ¢ÌîÈë¶ş¼¶±¨±í"
-Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
+Attribute VB_Name = "æ¨¡å—3"
+Sub æ›´æ­£åˆ†å·ä¸ºå†’å·()
+Attribute æ›´æ­£åˆ†å·ä¸ºå†’å·.VB_Description = "æ›´æ­£åˆ†å·ä¸ºå†’å·ï¼Œå‰ªåˆ‡é¾™æ´²æ¹¾æŠ¥è¡¨ä¸­å¤šä½™é¢„è­¦ä¿¡æ¯å¡«å…¥äºŒçº§æŠ¥è¡¨"
+Attribute æ›´æ­£åˆ†å·ä¸ºå†’å·.VB_ProcData.VB_Invoke_Func = "p\n14"
 '
-' ¸üÕı·ÖºÅÎªÃ°ºÅ ºê
+' æ›´æ­£åˆ†å·ä¸ºå†’å· å®
 '
 
     
     Cells.Replace What:=";", Replacement:=":", LookAt:=xlPart, SearchOrder _
         :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
 
-'    ´ò¿ªÎÄ¼ş´úÂëÊ¾Àı
+'    æ‰“å¼€æ–‡ä»¶ä»£ç ç¤ºä¾‹
 '    MsgBox ThisWorkbook.Path
 '    If Len(Dir(FN)) = 0 Then
-'    MsgBox "ÕÒ²»µ½ÎÄ¼ş£º" & vbCrLf & FN, vbExclamation, "´íÎó"
+'    MsgBox "æ‰¾ä¸åˆ°æ–‡ä»¶ï¼š" & vbCrLf & FN, vbExclamation, "é”™è¯¯"
 '    Else
-'    Workbooks.Open Filename:=ThisWorkbook.Path & "\±¨±í.xls"
+'    Workbooks.Open Filename:=ThisWorkbook.Path & "\æŠ¥è¡¨.xls"
 '    End If
 
-'±¨±íÎÄ¼ş¼ĞÂ·¾¶FN
+'æŠ¥è¡¨æ–‡ä»¶å¤¹è·¯å¾„FN
     Dim FN As String
     Dim idate As Date
     idate = Format(Now, "yyyy/m/d")
-    FN = ThisWorkbook.Path & "\½çÊ¯·Ö¹«Ë¾Æ½Ì¨±¨±í" & Month(idate) & "." & Day(idate) - 1 & "\"
+    FN = ThisWorkbook.Path & "\ç•ŒçŸ³åˆ†å…¬å¸å¹³å°æŠ¥è¡¨" & Month(idate) & "." & Day(idate) - 1 & "\"
 '    MsgBox "FN : " & FN
 '    MsgBox Dir(FN)
 
@@ -33,26 +33,26 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    Dim yj As String
 '    Dim dq As String
 
-'ÁúÖŞÍå±¨±íÃûfile_lzw
+'é¾™æ´²æ¹¾æŠ¥è¡¨åfile_lzw
     Dim file_lzw
-'Ä£ºı²éÕÒÁúÖŞÍåÎÄ¼şÂ·¾¶FileAddress_lzw
+'æ¨¡ç³ŠæŸ¥æ‰¾é¾™æ´²æ¹¾æ–‡ä»¶è·¯å¾„FileAddress_lzw
     Dim FileAddress_lzw
-'ÁúÖŞÍå±¨±íÂ·¾¶lzw
+'é¾™æ´²æ¹¾æŠ¥è¡¨è·¯å¾„lzw
     Dim lzw
     
-    FileAddress_lzw = FN & "*Èı¼¶GPSÁúÖŞÍåÊàÅ¦Õ¾*.xlsx"
+    FileAddress_lzw = FN & "*ä¸‰çº§GPSé¾™æ´²æ¹¾æ¢çº½ç«™*.xlsx"
     file_lzw = Dir(FileAddress_lzw)
     lzw = FN & file_lzw
 '    MsgBox "lzw: " + lzw
 '    MsgBox "file_lzw: " + file_lzw
-'    jsc = FN & "Èı¼¶GPS½çÊ¯³¡.xlsx"
-'    bnddz = FN & "Èı¼¶GPS°ÍÄÏ´óµÀÖĞ.xlsx"
-'    lj = FN & "Èı¼¶GPSÂ¹½Ç.xlsx"
-'    yj = FN & "Èı¼¶GPSÔ¶½¼.xlsx"
-'    dq = FN & "Èı¼¶GPS¶«Èª.xlsx"
+'    jsc = FN & "ä¸‰çº§GPSç•ŒçŸ³åœº.xlsx"
+'    bnddz = FN & "ä¸‰çº§GPSå·´å—å¤§é“ä¸­.xlsx"
+'    lj = FN & "ä¸‰çº§GPSé¹¿è§’.xlsx"
+'    yj = FN & "ä¸‰çº§GPSè¿œéƒŠ.xlsx"
+'    dq = FN & "ä¸‰çº§GPSä¸œæ³‰.xlsx"
 '    MsgBox Dir(FN & lzw)
 '    Dim a
-'    a = Dir(FN & "*Èı¼¶GPS*.xlsx")
+'    a = Dir(FN & "*ä¸‰çº§GPS*.xlsx")
 '    Workbooks.Open FN + a
 '    Do
 '    a = Dir
@@ -61,26 +61,27 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    End If
 '    Loop
     
-''´ò¿ªÁúÖŞÍå±¨±í
+''æ‰“å¼€é¾™æ´²æ¹¾æŠ¥è¡¨
 '    If Len(file_lzw) = 0 Then
-'    MsgBox "ÕÒ²»µ½ÎÄ¼ş£º" & vbCrLf & FileAddress_lzw, vbExclamation, "´íÎó"
+'    MsgBox "æ‰¾ä¸åˆ°æ–‡ä»¶ï¼š" & vbCrLf & FileAddress_lzw, vbExclamation, "é”™è¯¯"
 '    Else
 '    Workbooks.Open filename:=lzw
 '    End If
     
-    Call open_file(FN, "Èı¼¶GPSÁúÖŞÍåÊàÅ¦Õ¾", "xlsx")
+    Call open_file(FN, "ä¸‰çº§GPSé¾™æ´²æ¹¾æ¢çº½ç«™", "xlsx")
 
-''´ò¿ª¶ş¼¶GPS±¨±í
-'    If Len(Dir(FN & "¶ş¼¶GPS½çÊ¯.xlsx")) = 0 Then
-'    MsgBox "ÕÒ²»µ½ÎÄ¼ş£º" & vbCrLf & FN & "¶ş¼¶GPS½çÊ¯.xlsx", vbExclamation, "´íÎó"
+''æ‰“å¼€äºŒçº§GPSæŠ¥è¡¨
+'    If Len(Dir(FN & "äºŒçº§GPSç•ŒçŸ³.xlsx")) = 0 Then
+'    MsgBox "æ‰¾ä¸åˆ°æ–‡ä»¶ï¼š" & vbCrLf & FN & "äºŒçº§GPSç•ŒçŸ³.xlsx", vbExclamation, "é”™è¯¯"
 '    Else
-'    Workbooks.Open file_lzw:=FN + "¶ş¼¶GPS½çÊ¯.xlsx"
+'    Workbooks.Open file_lzw:=FN + "äºŒçº§GPSç•ŒçŸ³.xlsx"
 '    End If
 
-    Call open_file(FN, "¶ş¼¶GPS½çÊ¯", "xlsx")
+    Call open_file(FN, "äºŒçº§GPSç•ŒçŸ³", "xlsx")
 
 '-------------------------------------
-'¸´ÖÆ¸÷Èı¼¶±¨±í¶¨Î»ÂÊ´¦ÀíÇé¿ö»ã×Üµ½¶ş¼¶±¨±í (Î´Íê³É)
+'å¤åˆ¶å„ä¸‰çº§æŠ¥è¡¨å®šä½ç‡å¤„ç†æƒ…å†µæ±‡æ€»åˆ°äºŒçº§æŠ¥è¡¨ (æœªå®Œæˆ)
+'éå†å„ä¸ªä¸‰çº§æŠ¥è¡¨ä¸­å„ä¸ªsheetï¼ˆå„çº¿è·¯ï¼‰çš„å®šä½ç‡å¤„ç†æƒ…å†µï¼Œå¹¶å–å€¼åŠ å…¥åˆ°é˜Ÿåˆ—ï¼Œå°†é˜Ÿåˆ—çš„å€¼èµ‹ç»™äºŒçº§æŠ¥è¡¨çš„å®šä½ç‡å¤„ç†æƒ…å†µæ ¼å­
 '    Windows(file_lzw).Activate
 '    Sheets("186").Select
 '    Dim a
@@ -89,16 +90,16 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '
 ''    MsgBox "a: " + a
 '
-'    Windows("¶ş¼¶GPS½çÊ¯.xlsx").Activate
+'    Windows("äºŒçº§GPSç•ŒçŸ³.xlsx").Activate
 '    Range("I21") = a + ","
 '    End
 '----------------------------------------
 
-'´ÓÈı¼¶GPSÁúÖŞÍå±¨±í¸´ÖÆÔ¤¾¯ĞÅÏ¢£¨·½·¨1£©
-'    Windows("¶ş¼¶GPS½çÊ¯.xlsx").Activate
+'ä»ä¸‰çº§GPSé¾™æ´²æ¹¾æŠ¥è¡¨å¤åˆ¶é¢„è­¦ä¿¡æ¯ï¼ˆæ–¹æ³•1ï¼‰
+'    Windows("äºŒçº§GPSç•ŒçŸ³.xlsx").Activate
 '    Range("A2:W2").Select
 '    ActiveCell.FormulaR1C1 = _
-'        "µ¥Î»£º½çÊ¯·Ö¹«Ë¾                         ³µÌ¨Êı£º139Ì¨                                                           Ê±¼ä£º2019Äê" & Month(idate) & "ÔÂ" & (Day(idate) - 1) & "ÈÕ"
+'        "å•ä½ï¼šç•ŒçŸ³åˆ†å…¬å¸                         è½¦å°æ•°ï¼š139å°                                                           æ—¶é—´ï¼š2019å¹´" & Month(idate) & "æœˆ" & (Day(idate) - 1) & "æ—¥"
 '    Range("J6:W6").Select
 
 '    Range("I4").Select
@@ -114,7 +115,7 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    Range("J6:W6").Select
 '    ActiveCell.FormulaR1C1 = "='[" + file_lzw + "]393'!R12C20"
 
-''¸´ÖÆI4:W6µÄÖµ²¢Õ³Ìùµ½I4:W6
+''å¤åˆ¶I4:W6çš„å€¼å¹¶ç²˜è´´åˆ°I4:W6
 '    Range("I4:W6").Select
 '    Selection.Copy
 '    Range("I4").Select
@@ -123,12 +124,12 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    Range("I20").Select
 
 '
-''±£´æ
+''ä¿å­˜
 '    ActiveWorkbook.Save
 ''    ActiveWindow.Close
 '
 '
-''É¾³ıÈı¼¶GPSÁúÖŞÍå±¨±íÖĞ393µÄ¶àÓàÔ¤¾¯ĞÅÏ¢
+''åˆ é™¤ä¸‰çº§GPSé¾™æ´²æ¹¾æŠ¥è¡¨ä¸­393çš„å¤šä½™é¢„è­¦ä¿¡æ¯
 '    Windows(file_lzw).Activate
 '    Sheets("393").Select
 '    Range("S5:T12").Select
@@ -137,7 +138,7 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    ActiveWorkbook.Save
 ''    ActiveWindow.Close
 
-'´ÓÈı¼¶GPSÁúÖŞÍå±¨±í¸´ÖÆÔ¤¾¯ĞÅÏ¢(·½·¨2)
+'ä»ä¸‰çº§GPSé¾™æ´²æ¹¾æŠ¥è¡¨å¤åˆ¶é¢„è­¦ä¿¡æ¯(æ–¹æ³•2)
     Windows(file_lzw).Activate
     Sheets("393").Select
     Dim time1, time2, time3
@@ -149,31 +150,31 @@ Attribute ¸üÕı·ÖºÅÎªÃ°ºÅ.VB_ProcData.VB_Invoke_Func = "p\n14"
     msg2 = Range("t8").Value
     msg3 = Range("t12").Value
 
-'É¾³ıÈı¼¶GPSÁúÖŞÍå±¨±íÖĞ393µÄ¶àÓàÔ¤¾¯ĞÅÏ¢
+'åˆ é™¤ä¸‰çº§GPSé¾™æ´²æ¹¾æŠ¥è¡¨ä¸­393çš„å¤šä½™é¢„è­¦ä¿¡æ¯
     Range("S5:T12") = ""
     ActiveWorkbook.Save
 
-    Windows("¶ş¼¶GPS½çÊ¯.xlsx").Activate
+    Windows("äºŒçº§GPSç•ŒçŸ³.xlsx").Activate
     Range("i4") = time1
     Range("j4") = msg1
     Range("i5") = time2
     Range("j5") = msg2
     Range("i6") = time3
     Range("j6") = msg3
-    Range("a2") = "µ¥Î»£º½çÊ¯·Ö¹«Ë¾                         ³µÌ¨Êı£º139Ì¨                                                           Ê±¼ä£º2019Äê" & Month(idate) & "ÔÂ" & (Day(idate) - 1) & "ÈÕ"
+    Range("a2") = "å•ä½ï¼šç•ŒçŸ³åˆ†å…¬å¸                         è½¦å°æ•°ï¼š139å°                                                           æ—¶é—´ï¼š2019å¹´" & Month(idate) & "æœˆ" & (Day(idate) - 1) & "æ—¥"
     ActiveWorkbook.Save
 '    ActiveWindow.Close
 
 End Sub
 
-'Sub open_all_files(²ÎÊı)
+'Sub open_all_files(å‚æ•°)
 'Dim a
-'a = Dir("C:\Users\Administrator\Desktop\ĞÂ½¨ÎÄ¼ş¼Ğ\*.txt") '½«txt½áÎ²µÄËùÓĞÎÄ¼ş´ò¿ª£¬µ«ÊÇÔÚÕâÀïÖ»´ò¿ªµÚÒ»¸ö·ûºÏµÄÎÄ¼ş£¬½ÓÏÂÀ´µÄÎÄ¼şÔÚdoÑ­»·ÀïÒÀ´Î´ò¿ª
-'Workbooks.Open "C:\Users\Administrator\Desktop\ĞÂ½¨ÎÄ¼ş¼Ğ\" + a
-'Do '±éÀúÄ¿Â¼ÏÂµÄËùÓĞÖ¸¶¨¸ñÊ½µÄÎÄ¼şÃû
-'a = Dir 'Ö®Ç°dir()ÏÂÒÑ¾­´ò¿ªÁË¶à¸öÎÄ¼ş£¬ÕâÀï¾Í²»ÓÃÔÚĞ´ÉÏ£¬±íÊ¾ÒÀ´Î´ò¿ª·ûºÏ¸ñÊ½µÄÎÄ¼ş
+'a = Dir("C:\Users\Administrator\Desktop\æ–°å»ºæ–‡ä»¶å¤¹\*.txt") 'å°†txtç»“å°¾çš„æ‰€æœ‰æ–‡ä»¶æ‰“å¼€ï¼Œä½†æ˜¯åœ¨è¿™é‡Œåªæ‰“å¼€ç¬¬ä¸€ä¸ªç¬¦åˆçš„æ–‡ä»¶ï¼Œæ¥ä¸‹æ¥çš„æ–‡ä»¶åœ¨doå¾ªç¯é‡Œä¾æ¬¡æ‰“å¼€
+'Workbooks.Open "C:\Users\Administrator\Desktop\æ–°å»ºæ–‡ä»¶å¤¹\" + a
+'Do 'éå†ç›®å½•ä¸‹çš„æ‰€æœ‰æŒ‡å®šæ ¼å¼çš„æ–‡ä»¶å
+'a = Dir 'ä¹‹å‰dir()ä¸‹å·²ç»æ‰“å¼€äº†å¤šä¸ªæ–‡ä»¶ï¼Œè¿™é‡Œå°±ä¸ç”¨åœ¨å†™ä¸Šï¼Œè¡¨ç¤ºä¾æ¬¡æ‰“å¼€ç¬¦åˆæ ¼å¼çš„æ–‡ä»¶
 'If a <> "" Then
-'Workbooks.Open "C:\Users\Administrator\Desktop\ĞÂ½¨ÎÄ¼ş¼Ğ\" + a '´ò¿ªÃ¿Ò»¸ö·ûºÏ¸ñÊ½µÄÎÄ¼ş
+'Workbooks.Open "C:\Users\Administrator\Desktop\æ–°å»ºæ–‡ä»¶å¤¹\" + a 'æ‰“å¼€æ¯ä¸€ä¸ªç¬¦åˆæ ¼å¼çš„æ–‡ä»¶
 'Else
 'Exit Sub
 'End If
@@ -182,8 +183,8 @@ End Sub
 'End Sub
 
 Sub open_file(FN, key, extension)
-    'open_file(FN, key, extension)°´Â·¾¶¡¢ÎÄ¼ş¹Ø¼ü×Ö¡¢ÎÄ¼şºó×ºÃû´ò¿ªÎÄ¼ş
-    'ÎÄ¼ş¼ĞÂ·¾¶FN£¬ÎÄ¼ş¹Ø¼ü×Ökey£¬ÎÄ¼şºó×ºÃûextension
+    'open_file(FN, key, extension)æŒ‰è·¯å¾„ã€æ–‡ä»¶å…³é”®å­—ã€æ–‡ä»¶åç¼€åæ‰“å¼€æ–‡ä»¶
+    'æ–‡ä»¶å¤¹è·¯å¾„FNï¼Œæ–‡ä»¶å…³é”®å­—keyï¼Œæ–‡ä»¶åç¼€åextension
     
 '    MsgBox "FN:" & FN & ",file:" & file
     Dim file
@@ -191,8 +192,8 @@ Sub open_file(FN, key, extension)
 '    MsgBox file
     If Len(Dir(FN & file)) = 0 Then
 '   MsgBox (Dir(FN & file))
-        MsgBox "ÕÒ²»µ½ÎÄ¼ş£º" & vbCrLf & FN & file, vbExclamation, "´íÎó"
-'EndÓï¾äÖÕÖ¹Õû¸ö³ÌĞò
+        MsgBox "æ‰¾ä¸åˆ°æ–‡ä»¶ï¼š" & vbCrLf & FN & file, vbExclamation, "é”™è¯¯"
+'Endè¯­å¥ç»ˆæ­¢æ•´ä¸ªç¨‹åº
         End
     Else
     Workbooks.Open filename:=FN & Dir(FN & file)
