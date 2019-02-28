@@ -168,7 +168,8 @@ Sub 更正分号为冒号()
 '    Range("a2") = "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
     
 '只更改最后的的日期，暂保持原表车台数不变，求和车台数功能以后添加
-    Range("a2") = Left(a2, a22) + "2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+'    Range("a2") = Left(a2, a22) + "2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+    Range("a2") = Left(a2, a22) & Year(idate) & "年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
     ActiveWorkbook.Save
 '    ActiveWindow.Close
 
