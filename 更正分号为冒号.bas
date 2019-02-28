@@ -1,12 +1,9 @@
-Attribute VB_Name = "模块3"
 Sub 更正分号为冒号()
-Attribute 更正分号为冒号.VB_Description = "更正分号为冒号，剪切龙洲湾报表中多余预警信息填入二级报表"
-Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
 '
 ' 更正分号为冒号 宏
 '
 
-    
+
     Cells.Replace What:=";", Replacement:=":", LookAt:=xlPart, SearchOrder _
         :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
 
@@ -39,7 +36,7 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
     Dim FileAddress_lzw
 '龙洲湾报表路径lzw
     Dim lzw
-    
+
     FileAddress_lzw = FN & "*三级GPS龙洲湾枢纽站*.xlsx"
     file_lzw = Dir(FileAddress_lzw)
     lzw = FN & file_lzw
@@ -60,14 +57,14 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    Workbooks.Open FN + a
 '    End If
 '    Loop
-    
+
 ''打开龙洲湾报表
 '    If Len(file_lzw) = 0 Then
 '    MsgBox "找不到文件：" & vbCrLf & FileAddress_lzw, vbExclamation, "错误"
 '    Else
 '    Workbooks.Open filename:=lzw
 '    End If
-    
+
     Call open_file(FN, "三级GPS龙洲湾枢纽站", "xlsx")
 
 ''打开二级GPS报表
@@ -81,7 +78,7 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
 
 '-------------------------------------
 '复制各三级报表定位率处理情况汇总到二级报表 (未完成)
-'遍历各个三级报表中各个sheet（各线路）的定位率处理情况，并取值加入到队列，将队列的值赋给二级报表的定位率处理情况格子
+'遍历各个三级报表中各个sheet（各线路）的定位率处理情况，并取值（取值判断：是否是5位数字加汉字，每个值后面加逗号）加入到队列，将队列的值赋给二级报表的定位率处理情况格子
 '    Windows(file_lzw).Activate
 '    Sheets("186").Select
 '    Dim a
@@ -99,7 +96,7 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
 '    Windows("二级GPS界石.xlsx").Activate
 '    Range("A2:W2").Select
 '    ActiveCell.FormulaR1C1 = _
-'        "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+'        "单位：界石分公司                         车台数：140台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
 '    Range("J6:W6").Select
 
 '    Range("I4").Select
@@ -145,14 +142,15 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
     Dim msg1, msg2, msg3
     time1 = Range("s5").Value
     time2 = Range("s8").Value
-    time3 = Range("s12").Value
+    time3 = Range("s11").Value
     msg1 = Range("t5").Value
     msg2 = Range("t8").Value
-    msg3 = Range("t12").Value
+    msg3 = Range("t11").Value
 
 '删除三级GPS龙洲湾报表中393的多余预警信息
     Range("S5:T12") = ""
     ActiveWorkbook.Save
+'    ActiveWindow.Close
 
     Windows("二级GPS界石.xlsx").Activate
     Range("i4") = time1
@@ -161,7 +159,16 @@ Attribute 更正分号为冒号.VB_ProcData.VB_Invoke_Func = "p\n14"
     Range("j5") = msg2
     Range("i6") = time3
     Range("j6") = msg3
-    Range("a2") = "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+    Dim a2
+    a2 = Range("a2").Value
+    Dim a22
+    a22 = InStrRev(a2, "时间：") + 2
+'    MsgBox (InStrRev(a2, "时间："))
+'    MsgBox (Left(a2, a22) + "2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日")
+'    Range("a2") = "单位：界石分公司                         车台数：139台                                                           时间：2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+    
+'只更改最后的的日期，暂保持原表车台数不变，求和车台数功能以后添加
+    Range("a2") = Left(a2, a22) + "2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
     ActiveWorkbook.Save
 '    ActiveWindow.Close
 
