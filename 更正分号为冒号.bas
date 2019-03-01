@@ -19,7 +19,9 @@ Sub 更正分号为冒号()
     Dim FN As String
     Dim idate As Date
     idate = Format(Now, "yyyy/m/d")
-    FN = ThisWorkbook.Path & "\界石分公司平台报表" & Month(idate) & "." & Day(idate) - 1 & "\"
+    idate = idate - 1
+    
+    FN = ThisWorkbook.Path & "\界石分公司平台报表" & Month(idate) & "." & Day(idate) & "\"
 '    MsgBox "FN : " & FN
 '    MsgBox Dir(FN)
 
@@ -169,7 +171,7 @@ Sub 更正分号为冒号()
     
 '只更改最后的的日期，暂保持原表车台数不变，求和车台数功能以后添加
 '    Range("a2") = Left(a2, a22) + "2019年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
-    Range("a2") = Left(a2, a22) & Year(idate) & "年" & Month(idate) & "月" & (Day(idate) - 1) & "日"
+    Range("a2") = Left(a2, a22) & Year(idate) & "年" & Month(idate) & "月" & Day(idate) & "日"
     ActiveWorkbook.Save
 '    ActiveWindow.Close
 
