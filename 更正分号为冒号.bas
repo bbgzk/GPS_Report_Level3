@@ -140,17 +140,36 @@ Sub 更正分号为冒号()
 '从三级GPS龙洲湾报表复制预警信息(方法2)
     Windows(file_lzw).Activate
     Sheets("393").Select
+'错误捕获（未完成）
+'    If (Sheets("394").Select = flase) Then
+'        MsgBox ("表格393找不到错误")
+'        End
+'    End If
+    
+'把5、8、11行改成5、6、7行的数据
+'    Dim time1, time2, time3
+'    Dim msg1, msg2, msg3
+'    time1 = Range("s5").Value
+'    time2 = Range("s8").Value
+'    time3 = Range("s11").Value
+'    msg1 = Range("t5").Value
+'    msg2 = Range("t8").Value
+'    msg3 = Range("t11").Value
+
     Dim time1, time2, time3
     Dim msg1, msg2, msg3
     time1 = Range("s5").Value
-    time2 = Range("s8").Value
-    time3 = Range("s11").Value
+    time2 = Range("s6").Value
+    time3 = Range("s7").Value
     msg1 = Range("t5").Value
-    msg2 = Range("t8").Value
-    msg3 = Range("t11").Value
+    msg2 = Range("t6").Value
+    msg3 = Range("t7").Value
+
 
 '删除三级GPS龙洲湾报表中393的多余预警信息
-    Range("S5:T12") = ""
+'    Range("S5:T12") = ""
+    Range("S5:T12").Select
+    Selection.Delete Shift:=xlToLeft
     ActiveWorkbook.Save
 '    ActiveWindow.Close
 
